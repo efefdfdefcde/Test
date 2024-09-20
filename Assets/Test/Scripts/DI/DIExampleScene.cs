@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DI;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Test.Scripts.DI
@@ -6,16 +7,14 @@ namespace Assets.Test.Scripts.DI
     public class DIExampleScene : MonoBehaviour
     {
 
-        // Use this for initialization
-        void Start()
+        public void Init(DIContainer projectContainer)
         {
+            var serviceWithoutTag = projectContainer.Resolve<MyAwesomeProjectService>();
+            var service1 = projectContainer.Resolve<MyAwesomeProjectService>("options1");
+            var service2 = projectContainer.Resolve<MyAwesomeProjectService>("options2");
 
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            var sceneRoot = FindObjectOfType<DIExampleScene>();
+            sceneRoot.Init(projectContainer);
         }
     }
 }
