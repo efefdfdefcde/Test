@@ -13,7 +13,7 @@ namespace Assets.Test.Scripts.DI
             var service1 = projectContainer.Resolve<MyAwesomeProjectService>("options1");
             var service2 = projectContainer.Resolve<MyAwesomeProjectService>("options2");
 
-            var sceneRoot = FindObjectOfType<DIExampleScene>();
+            var sceneRoot = FindFirstObjectByType<DIExampleScene>();
             sceneRoot.Init(projectContainer);
         }
     }
